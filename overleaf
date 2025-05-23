@@ -1,0 +1,633 @@
+% Formato de Informe para Sistemas de Información I
+% Universidad Católica del Norte - Coquimbo
+% Primer Semestre 2025
+
+\documentclass[12pt,letterpaper]{report}
+
+% Paquetes necesarios
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{float}
+
+% Configuración de márgenes
+\usepackage[top=2.5cm, bottom=2.5cm, left=3cm, right=3cm]{geometry}
+
+% Configuración de títulos
+\titleformat{\chapter}{\normalfont\LARGE\bfseries}{\thechapter.}{1em}{}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% Configuración de encabezado y pie de página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Sistemas de Información I}
+\fancyhead[R]{Universidad Católica del Norte}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Configuración de hipervínculos
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Proyecto de Sistemas de Información},
+    pdfpagemode=FullScreen,
+}
+
+\begin{document}
+
+%------------------------------------------------
+% PORTADA
+%------------------------------------------------
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    \includegraphics[width=0.4\textwidth]{ucn-EIC.pdf}
+    \vspace{1cm}
+    
+    {\LARGE \textbf{UNIVERSIDAD CATÓLICA DEL NORTE}}\\
+    \vspace{0.5cm}
+    {\large Escuela de Ingeniería}\\
+    \vspace{0.3cm}
+    {\large ICCI - ITI}\\
+    \vspace{0.3cm}
+    {\large Coquimbo}\\
+    \vspace{1.5cm}
+    
+    {\Huge \textbf{Proyecto de Sistemas de Información}}\\
+    \vspace{0.5cm}
+    {\LARGE Sistemas de Información I}\\
+    \vspace{1.5cm}
+    
+    {\large \textbf{Integrantes:}}\\
+    \vspace{0.3cm}
+    {\large Daniela Castro }
+    {\large Vicente Espinoza }\\
+    {\large Diego Martínez}\\
+    {\large Sebastián Vega}\\
+    {\large Gabriel Vergara}\\
+    \vspace{1.5cm}
+    
+    {\large \textbf{Profesor:} Felipe Quiroz}\\
+    \vspace{1.5cm}
+    
+    {\large Primer Semestre 2025}
+    
+\end{titlepage}
+
+%------------------------------------------------
+% ÍNDICE
+%------------------------------------------------
+\tableofcontents
+\newpage
+
+%------------------------------------------------
+% INTRODUCCIÓN
+%------------------------------------------------
+\chapter*{Introducción}
+\addcontentsline{toc}{chapter}{Introducción}
+
+La formacion de profesionales es uno de los pilares principales para las universidades, para ello deben pasar un proceso riguroso de varios años para poder salir a un campo laboral a poder aplicar lo aprendido. Sin embargo, no todas las personas que entran a universiades y/o insitutos tienden a completar este proceso de educacion superior, donde el rendimiento de cada estudiante corresponde a una de las cuantas razones validas para que ocurra este suceso. Es por eso que la Universidad Catolica del Norte, comprometida con la excelencia educativa y academica, ha identificado la necesidad de analizar habitos y estilos de vida de los estudiantes de su institucion para determinar como estos impactan en su desempeño universitario.
+
+Durante este proyecto, se busca abordar esta problematica mediante el análisis de un dataset simulado que contiene el registro de 1.000 estudiantes, con mas de 15 variables a analizar las cuales seran detalladas mas adelante. Para ello, se utilizaran tecnicas de analisis de datos, visualizacion en Power BI y KPIs relevantes. Esto permitira tomar decisiones informadas para impulsar y mejorar el desempeño estudiantil.
+
+
+
+\newpage
+
+%------------------------------------------------
+% DEFINICIÓN "ORGANIZACIÓN E INDUSTRIA"
+%------------------------------------------------
+\chapter{Definición de la Organización e Industria}
+
+\section{Análisis de la Organización}
+
+\subsection{Misión}
+La Universidad Católica del Norte inspirada en los principios del Humanismo Cristiano y la misión de la Iglesia Católica, contribuye a la creación y transferencia del conocimiento, a la formación integral de la persona y el desarrollo tecnológico. Como institución con vocación de servicio y excelencia impulsa desde el Norte de Chile, con las comunidades y el territorio, la sostenibilidad a través de la docencia, investigación y vinculación con el medio
+
+\subsection{Visión}
+Desde su identidad católica y vocación de excelencia, ser una universidad referente en su quehacer, que inspirada en el bien común integre disciplinas, tradiciones, culturas y comunidades para transformar vidas y ampliar oportunidades. 
+
+\subsection{Descripción Detallada}
+La Universidad Católica del Norte (UCN) fundada en el año 1956, es una institucion privada de educacion superior que reside en Chile, especificamente en las ciudades de Coquimbo y Antofagasta, siendo esta ultima ciudad donde se encuentra la sede principal. Esta universidad forma parte del Consejo de Rectores de las Universidades Chilenas (CRUCH) y de la Red G9, que agrupa a las principales universidades tradicionales no estatales del país. Cuenta  actualmente con mas de 50 carreras de pregrado, las cuales en su mayoria se encuentran en su sede principal, pero tambien ofrece programas de postgrado,magisteres, doctorados y diplomados
+
+\section{Identificación de Stakeholders}
+[Identificar y describir los principales grupos de interés (stakeholders) relacionados con la organización y el proyecto]
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|}
+        \hline
+        \textbf{Stakeholder} & \textbf{Rol/Relación} & \textbf{Intereses/Expectativas} \\
+        \hline
+        & & \\
+        \hline
+        & & \\
+        \hline
+        & & \\
+        \hline
+    \end{tabularx}
+    \caption{Identificación de Stakeholders}
+\end{table}
+
+\newpage
+
+%------------------------------------------------
+% DEFINICIÓN "DATA SET"
+%------------------------------------------------
+\chapter{Definición del Data Set}
+
+\section{Descripción del Data Set}
+El dataset seleccionado revela con datos sintéticos los hábitos de 1.000 estudiantes, considerando 14 variables entre las cuales se encuentra; edad, género, horas de estudio por día, horas dedicadas a redes sociales, horas de netflix, porcentaje de asistencia, horas de sueño, calidad de alimentación, frecuencia de ejercicio, nivel de educación de los padres, calidad de internet, evaluación de salud mental (escala del 1 al 10), participación en actividades extracurriculares, trabajo tiempo parcial (si o no), para evaluar la influencia de dichos indicadores en el puntaje de sus exámenes
+Se encuentra en formato .csv, donde las columnas corresponden a las variables, siendo la última de éstas, las calificaciones y las filas las respuestas de los estudiantes. De las categorías mencionadas anteriormente se tienen 9 variables cuantitativas (de las cuales 3 son discretas y 6 son continuas) y 5 variable cualitativas (3 nominales y 2 ordinales)
+\section{Justificación del Data Set}
+La elección del análisis del actual dataset representa una herramienta para analizar cómo los hábitos de los estudiantes pueden afectar el rendimiento académico, sirviendo para comparar cuáles variables podrían incidir en los resultados de los exámenes finales de los estudiantes. Es de suma importancia hacer un énfasis en esta investigación para determinar como aumentar el rendimiento de los estudiantes y posteriormente aplicar las herramientas encontradas para aplicarlas a un grupo de personas real, contribuyendo así a una mejora de los hábitos de ellos.
+
+\section{Calidad y Limitaciones de los Datos}
+En el dataset no se presentan datos faltantes. En cuanto a inconsistencias, aparentemente no se encontró ninguna, pero si podría generar dudas para el análisis, el hecho de que existan al menos 12 estudiantes que estudian 0 horas diarias, y un estudiante que trabaja part time, que estudia 8.3 horas, duerme 6.5, obtiene 100 de puntaje en el examen y posee tiempo para redes sociales y netflix, ya que los tiempos no coinciden por completo, lo cual podría indicar falsedad en la respuesta del estudiante.
+Una limitación que podría presentar el set de datos corresponde a la cantidad de información presentada, debido a que sólo se tienen 1.000 estudiantes, se podría haber tomado un valor mayor o haber indicado que los estudiantes corresponden a una facultad en específico, para así tener un mayor panorama de otras variables que podrían influenciar negativamente en la precisión del estudio. Otro aspecto a considerar sería el incluir las razones de las inasistencias, ya que se podría llegar a una conclusión errónea, como por ejemplo decir que los estudiantes por irresponsabilidad (por el hecho de no asistir a clases) no obtuvieron un buen rendimiento en el examen, cuando pueden haberse ausentado por enfermedad. Y,
+finalmente agregar el tipo de actividad extracurricular que realizan los estudiantes, ya que esto facilitaría establecer una conexión de actividades extracurriculares que ayudan a los estudiantes a mejorar su rendimiento.
+\newpage
+
+%------------------------------------------------
+% PASOS DEL PROYECTO
+%------------------------------------------------
+\chapter{Desarrollo del Proyecto}
+
+%------------------------------------------------
+% PASO 1: ANÁLISIS DE LA ORGANIZACIÓN
+%------------------------------------------------
+\section{Paso 1: Análisis de la Organización}
+\textit{Nota: Algunas de estas informaciones ya fueron presentadas en el capítulo de "Definición de la Organización e Industria". Se puede hacer referencia a dicho capítulo y complementar con información adicional si es necesario.}
+
+\subsection{Factores Organizacionales Centrales}
+[Analizar los factores organizacionales centrales mencionados en el documento:
+\begin{itemize}
+    \item El entorno en que debe funcionar la organización
+    \item La estructura de la organización: jerarquía, especialización, rutinas y procesos de negocios
+    \item La cultura y las políticas de la organización
+    \item El tipo de organización y su estilo de liderazgo
+    \item Los principales grupos de interés afectados por el sistema
+    \item Los tipos de tareas, decisiones y procesos de negocios que el sistema de información ayudará
+\end{itemize}]
+
+%------------------------------------------------
+% PASO 2: INTRODUCCIÓN A LA PROBLEMÁTICA
+%------------------------------------------------
+\section{Paso 2: Introducción a la Problemática}
+
+\subsection{Descripción del Problema}
+Se identificó en la Universidad Católica del Norte que estudiantes de distintas facultades tenían bajo rendimiento académico lo que provocó que muchos abandonaran sus respectivas carreras o que se atrasaran varios años. Por lo cual se decicidió investigar cuáles podrían ser las razones por las que esto ocurre con tanta frecuencia, para poder ponerle un freno a esta situación y ayudar a los estudiantes con herramientas para mejorar su desempeño. Por ello se contempló la posibilidad de trabajar con un dataset sintético para evaluar posibles causas de este problema y así poder presentar soluciones que resuelvan o mitiguen los efectos provocados por el bajo rendimiento de los estudiantes.
+\subsection{Justificación}
+Es relevante poner un enfásis en la resolución de la problemática mencionada, para lograr disminuir el porcentaje de reprobación en los estudiantes, para que así puedan culminar sus estudios en la duración establecidad de su carrera. En promedio en Chile, los estudiantes se gradúan en 1,25 años más de la extensión real del pregrado. Además, se estimó que en la Universidad Católica del Norte los estudiantes se tardan entre 2 y 2,5 años en concluir sus estudios, al estar sobre el promedio del país, supone un problema real que afecta a los estudiantes de esta casa de estudios.
+Gracias a la investigación, se espera poder identificar correctamente las causas fundamentales que generan esta problemática, para poder disminuir significativamente los años adicionales que requieren los alumnos para finalizar sus estudios, analizando estrategias de apoyo para eliminar o mitigar el efecto que producen las razones por las cuales su rendimiento se ve afectado, logrando así herramientas beneficiosas para fomentar el aprendizaje.
+%------------------------------------------------
+% PASO 3: IDENTIFICACIÓN Y DETALLE DEL PROCESO
+%------------------------------------------------
+\section{Paso 3: Identificación y Detalle del Proceso}
+
+\subsection{Descripción General del Proceso}
+El proceso a trabajar consiste en el diseño, desarrollo y aplicación de un sistema de análisis de información basado en datos estudiantiles, que permita identificar patrones y factores que influyen en el bajo rendimiento académico de los estudiantes. El sistema utilizará un dataset sintético que representa los hábitos de estudio, salud mental, actividades extracurriculares y otros factores, para luego correlacionarlos con el rendimiento académico.
+
+Este proceso se enmarca dentro de un proyecto de inteligencia de negocios académica, en el que se busca transformar datos en conocimiento útil para la toma de decisiones en contextos educativos.
+
+\subsection{Diagrama del Proceso}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{diagrama de flujo.drawio.png}
+    \caption{Diagrama de flujo del proceso}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{Detalle de Cada Paso del Proceso}
+
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|p{3cm}|p{5cm}|p{3cm}|p{5cm}|}
+        \hline
+        \textbf{Paso} & \textbf{Descripción} & \textbf{Responsable} & \textbf{Recursos necesarios} \\
+        \hline
+        Recolección de Datos &
+        Obtención y comprensión del dataset sintético con variables relacionadas a hábitos estudiantiles y rendimiento. &
+        Vicente Espinoza &
+        Acceso a Kaggle, herramientas para visualizar CSV . \\
+        \hline
+        Limpieza y Preprocesamiento &
+        Depuración de datos, tratamiento de valores faltantes y codificación de variables. &
+        Daniela Castro &
+        Python , Google Colab o Jupyter Notebook, documentación del dataset. \\
+        \hline
+        Análisis Exploratorio de Datos (EDA) &
+        Identificación de patrones, correlaciones y visualización de relaciones entre variables. &
+        Gabriel Vergara &
+        Python , entorno de desarrollo , herramientas estadísticas básicas. \\
+        \hline
+        Modelado Predictivo &
+        Aplicación de algoritmos de Machine Learning para predecir rendimiento académico. &
+        Diego Martínez &
+        Scikit-learn, XGBoost u otros modelos de ML, recursos computacionales , librerías de evaluación . \\
+        \hline
+        Interpretación de Resultados &
+        Evaluación del modelo, análisis de métricas y extracción de insights clave. &
+        Sebastián Vega &
+        Documentación de métricas , visualizaciones de importancia de variables, herramientas de reporte . \\
+        \hline
+        Recomendaciones y Desarrollo de Soluciones &
+        Elaboración de propuestas prácticas basadas en los resultados obtenidos para apoyar a estudiantes. &
+        Daniela Castro &
+        Resultados del análisis, documento de propuestas. \\
+        \hline
+    \end{tabular}
+    \caption{Detalle de los Pasos del Proceso}
+\end{table}
+
+
+%------------------------------------------------
+% PASO 4: IDENTIFICACIÓN DE PROBLEMA O MEJORA
+%------------------------------------------------
+\section{Paso 4: Identificación de Problema o Mejora}
+
+\subsection{Árbol de Problemas}
+[Incluir y explicar el árbol de problemas que identifica las causas y efectos del problema principal]
+
+\subsection{Matriz de Vester}
+[Incluir y explicar la matriz de Vester para la priorización de problemas]
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        \textbf{Problemas} & \textbf{P1} & \textbf{P2} & \textbf{P3} & \textbf{...} & \textbf{Total Activos} \\
+        \hline
+        P1 & & & & & \\
+        \hline
+        P2 & & & & & \\
+        \hline
+        P3 & & & & & \\
+        \hline
+        ... & & & & & \\
+        \hline
+        \textbf{Total Pasivos} & & & & & \\
+        \hline
+    \end{tabular}
+    \caption{Matriz de Vester}
+\end{table}
+
+\subsection{Cadena de Valor}
+[Incluir y explicar la cadena de valor de la organización, identificando cómo el proceso seleccionado se relaciona con ella]
+
+\subsection{Análisis FODA}
+[Incluir y explicar el análisis FODA relacionado con el proceso a intervenir]
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+        \hline
+        \textbf{Fortalezas} & \textbf{Oportunidades} \\
+        \hline
+        \begin{itemize}
+            \item Fortaleza 1
+            \item Fortaleza 2
+            \item ...
+        \end{itemize} & 
+        \begin{itemize}
+            \item Oportunidad 1
+            \item Oportunidad 2
+            \item ...
+        \end{itemize} \\
+        \hline
+        \textbf{Debilidades} & \textbf{Amenazas} \\
+        \hline
+        \begin{itemize}
+            \item Debilidad 1
+            \item Debilidad 2
+            \item ...
+        \end{itemize} & 
+        \begin{itemize}
+            \item Amenaza 1
+            \item Amenaza 2
+            \item ...
+        \end{itemize} \\
+        \hline
+    \end{tabular}
+    \caption{Análisis FODA}
+\end{table}
+
+%------------------------------------------------
+% PASO 5: DEFINICIÓN DE OBJETIVOS, ALCANCE Y SOLUCIÓN
+%------------------------------------------------
+\section{Paso 5: Definición de Objetivos, Alcance y Solución}
+
+\subsection{Objetivos}
+
+\subsubsection{Objetivo General}
+[Definir el objetivo general del proyecto]
+
+\subsubsection{Objetivos Específicos}
+[Listar y describir los objetivos específicos del proyecto]
+
+\subsection{Alcance}
+[Definir el alcance del proyecto, especificando lo que se incluirá y lo que quedará fuera]
+
+\subsection{Descripción de la Solución Propuesta}
+[Describir detalladamente la solución propuesta para resolver el problema identificado]
+
+%------------------------------------------------
+% PASO 6: PLANIFICACIÓN
+%------------------------------------------------
+\section{Paso 6: Planificación}
+
+\subsection{Ciclo de Desarrollo}
+Se empleará el ciclo de desarrollo incremental, ideal para proyectos de análisis de datos donde se puede trabajar en etapas parciales que se mejoran progresivamente. Este ciclo permite entregar avances funcionales desde etapas tempranas, realizar retroalimentación continua y ajustar soluciones conforme se avanza en el análisis.
+\begin{enumerate}
+    \item Recolección y comprensión inicial de datos
+    \item Primer análisis y visualización
+    \item Construcción de modelos iniciales
+    \item Validación y ajuste de modelos
+    \item Extracción de resultados y generación de propuestas
+    \item Documentación y presentación
+\end{enumerate}
+
+\subsection{División del Trabajo y Roles del Equipo}
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|}
+        \hline
+        \textbf{Miembro del Equipo} & \textbf{Rol} & \textbf{Responsabilidades} \\
+        \hline Daniela Castro
+        & Coordinadora del Proyecto & Coordina reuniones, lidera la integración de entregables y revisa avances finales. \\
+        \hline Vicente Espinoza
+        & Encargado de Datos & Descarga, organiza y documenta el dataset. Prepara los datos para su análisis.\\
+        \hline Gabriel Vergara
+        & Analista Exploratorio & Realiza el análisis exploratorio y genera visualizaciones para detectar patrones.\\
+        \hline Diego Martínez
+        & Modelador de Datos & Desarrolla modelos predictivos y evalúa su rendimiento con métricas adecuadas.\\
+        \hline Sebastián Vega
+        & Evaluador y Documentador & Interpreta resultados del modelo, redacta conclusiones y elabora las recomendaciones.\\
+        \hline
+    \end{tabularx}
+    \caption{Roles y Responsabilidades del Equipo}
+\end{table}
+
+\subsection{Tareas y Plazos}
+[Definir las tareas específicas del proyecto y establecer plazos para su realización]
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|X|X|}
+        \hline
+        \textbf{Tarea} & \textbf{Responsable} & \textbf{Fecha Inicio} & \textbf{Fecha Fin} & \textbf{Dependencias} \\
+        \hline  Primer informe y presentación de avance
+        & Todo el equipo & 18 Mayo & 23 Mayo& \\
+        \hline Recolección y organización de datos 
+        & Vicente Espinoza & 23 Mayo & 27 Mayo& Dataset\\
+        \hline Limpieza y preprocesamiento de datos
+        & Daniela Castro & 	27 Mayo & 31 Mayo & Recolección de datos \\
+        \hline Análisis exploratorio y visualizaciones
+        & Gabriel Vergara & 1 Junio & 7 Junio & Preprocesamiento de datos \\
+        \hline Desarrollo de modelo predictivo inicial
+        & Diego Martínez & 8 Junio & 12 Junio&Análisis exploratorio\\
+        \hline Evaluación del modelo y ajuste
+        & Diego Martínez & 10 Junio & 14 Junio &  Modelo inicial\\
+        \hline Interpretación y generación de propuestas
+        & Sebastián Vega & 14 Junio & 20 Junio & Modelo validado\\
+        \hline Redacción de informe final
+        & Todo el equipo & 20 Junio & 28 Junio& Todos los pasos anteriores\\
+        \hline Preparación presentación final
+        & Todo el equipo & 28 Junio & 30 Junio& Informe y resultados finales \\
+        \hline
+    \end{tabularx}
+    \caption{Cronograma de Tareas}
+\end{table}
+
+%------------------------------------------------
+% PASO 7: IDENTIFICACIÓN DE KPI
+%------------------------------------------------
+\section{Paso 7: Identificación de KPI}
+
+\subsection{Definición de KPI}
+[Identificar y detallar los Indicadores Clave de Desempeño (KPI) que se incorporarán en el trabajo]
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|X|X|}
+        \hline
+        \textbf{KPI} & \textbf{Descripción} & \textbf{Fórmula de Cálculo} & \textbf{Meta} & \textbf{Impacto en el Proceso} \\
+        \hline
+        & & & & \\
+        \hline
+        & & & & \\
+        \hline
+        & & & & \\
+        \hline
+    \end{tabularx}
+    \caption{Indicadores Clave de Desempeño (KPI)}
+\end{table}
+
+\subsection{Justificación de los KPI Seleccionados}
+[Explicar por qué se seleccionaron estos KPI específicos y cómo se relacionan con los objetivos del proyecto]
+
+%------------------------------------------------
+% PASO 8: DEFINICIÓN Y DESCRIPCIÓN DE LOS DATOS
+%------------------------------------------------
+\section{Paso 8: Definición y Descripción de los Datos}
+
+\subsection{Establecimiento y Búsqueda del Data Set}
+[Describir el proceso de establecimiento y búsqueda del conjunto de datos]
+
+\subsection{Descripción Detallada del Data Set}
+[Proporcionar una descripción detallada del conjunto de datos, incluyendo variables, tipos de datos, estadísticas descriptivas, etc.]
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|X|}
+        \hline
+        \textbf{Variable} & \textbf{Tipo de Dato} & \textbf{Descripción} & \textbf{Ejemplo} \\
+        \hline
+        & & & \\
+        \hline
+        & & & \\
+        \hline
+        & & & \\
+        \hline
+    \end{tabularx}
+    \caption{Descripción de Variables del Data Set}
+\end{table}
+
+%------------------------------------------------
+% PASO 9: PREPARACIÓN DE LOS DATOS
+%------------------------------------------------
+\section{Paso 9: Preparación de los Datos}
+
+\subsection{Carga de Datos}
+[Describir el proceso de carga de los datos]
+
+\subsection{Transformación de Datos}
+[Detallar las transformaciones aplicadas a los datos para prepararlos para el análisis]
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|}
+        \hline
+        \textbf{Variable Original} & \textbf{Transformación Aplicada} & \textbf{Variable Resultante} \\
+        \hline
+        & & \\
+        \hline
+        & & \\
+        \hline
+        & & \\
+        \hline
+    \end{tabularx}
+    \caption{Transformaciones Aplicadas a los Datos}
+\end{table}
+
+%------------------------------------------------
+% PASO 10: ESTABLECIMIENTO DE REGLAS DE CÁLCULO
+%------------------------------------------------
+\section{Paso 10: Establecimiento de Reglas de Cálculo}
+
+\subsection{Métricas Definidas}
+[Describir las métricas definidas para el análisis]
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|}
+        \hline
+        \textbf{Métrica} & \textbf{Fórmula de Cálculo} & \textbf{Descripción} \\
+        \hline
+        & & \\
+        \hline
+        & & \\
+        \hline
+        & & \\
+        \hline
+    \end{tabularx}
+    \caption{Métricas Definidas}
+\end{table}
+
+\subsection{Campos Calculados}
+[Describir los campos calculados creados para el análisis]
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|}
+        \hline
+        \textbf{Campo Calculado} & \textbf{Fórmula} & \textbf{Descripción} \\
+        \hline
+        & & \\
+        \hline
+        & & \\
+        \hline
+        & & \\
+        \hline
+    \end{tabularx}
+    \caption{Campos Calculados}
+\end{table}
+
+%------------------------------------------------
+% PASO 11: IMPLEMENTACIÓN DEL DASHBOARD
+%------------------------------------------------
+\section{Paso 11: Implementación del Dashboard en Power BI}
+
+\subsection{Diseño del Dashboard}
+[Describir el diseño general del dashboard y la justificación de este diseño]
+
+\subsection{Elementos Visuales}
+[Describir los elementos visuales (gráficos) incorporados en el dashboard]
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|}
+        \hline
+        \textbf{Elemento Visual} & \textbf{Datos Representados} & \textbf{Justificación} \\
+        \hline
+        & & \\
+        \hline
+        & & \\
+        \hline
+        & & \\
+        \hline
+    \end{tabularx}
+    \caption{Elementos Visuales del Dashboard}
+\end{table}
+
+\subsection{Capturas de Pantalla del Dashboard}
+[Incluir capturas de pantalla del dashboard implementado]
+
+%------------------------------------------------
+% PASO 12: CONCLUSIONES Y PROPUESTAS DE MEJORA
+%------------------------------------------------
+\section{Paso 12: Conclusiones y Propuestas de Mejora}
+
+\subsection{Análisis de los KPI}
+[Presentar y analizar los resultados obtenidos para cada KPI]
+
+\subsection{Propuestas de Mejora}
+[Establecer propuestas de mejora sobre el proceso intervenido, basadas en los resultados del análisis]
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|X|}
+        \hline
+        \textbf{Propuesta de Mejora} & \textbf{Descripción} & \textbf{Impacto Esperado} & \textbf{Dificultad de Implementación} \\
+        \hline
+        & & & \\
+        \hline
+        & & & \\
+        \hline
+        & & & \\
+        \hline
+    \end{tabularx}
+    \caption{Propuestas de Mejora}
+\end{table}
+
+%------------------------------------------------
+% CONCLUSIONES GENERALES
+%------------------------------------------------
+\chapter{Conclusiones Generales}
+
+\section{Resumen del Trabajo Realizado}
+[Resumir el trabajo realizado a lo largo del proyecto]
+
+\section{Logros y Resultados Obtenidos}
+[Describir los logros y resultados obtenidos con el proyecto]
+
+\section{Dificultades Encontradas}
+[Mencionar las dificultades encontradas durante el desarrollo del proyecto y cómo se superaron]
+
+\section{Lecciones Aprendidas}
+[Describir las lecciones aprendidas durante el desarrollo del proyecto]
+
+\section{Recomendaciones para Futuros Proyectos}
+[Proporcionar recomendaciones para futuros proyectos similares]
+
+%------------------------------------------------
+% REFERENCIAS
+%------------------------------------------------
+\chapter*{Referencias}
+\addcontentsline{toc}{chapter}{Referencias}
+
+[Incluir todas las referencias utilizadas en el informe, siguiendo algún estilo bibliográfico estándar como APA o IEEE]
+
+%------------------------------------------------
+% ANEXOS
+%------------------------------------------------
+\chapter*{Anexos}
+\addcontentsline{toc}{chapter}{Anexos}
+
+[Incluir cualquier material adicional relevante para el informe, como código, datos adicionales, gráficos complementarios, etc.]
+
+\end{document}
